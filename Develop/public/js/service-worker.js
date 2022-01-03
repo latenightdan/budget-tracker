@@ -6,12 +6,10 @@ const CACHE_NAME = APP_PREFIX + VERSION;
 
 
 const FILES_TO_CACHE = [
-    //figure out why it won't cache the other files
-    "./",
-    "./index.html",
-    "../js/index.js",
-    "../js/idb.js",
-    //only caches this one
+    '/',
+    '/index.html',
+    '/js/index.js',
+    '/js/idb.js',
     "../css/styles.css"
 
 ]
