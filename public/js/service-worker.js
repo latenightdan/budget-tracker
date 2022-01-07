@@ -5,22 +5,22 @@ const CACHE_NAME = APP_PREFIX + VERSION;
 
 
 
-const FILES_TO_CACHE = [
-    //figure out why it won't cache the other files
-    "./",
-    "./index.html",
-    "../js/index.js",
-    "../js/idb.js",
-    //only caches this one
-    "../css/styles.css"
-
-]
+// const FILES_TO_CACHE = 
 
 self.addEventListener('install', function (e) {
 e.waitUntil(
     caches.open(CACHE_NAME).then(function (cache) {
         console.log('installing cache : ' + CACHE_NAME)
-        return cache.addAll(FILES_TO_CACHE)
+        return cache.addAll([
+            //figure out why it won't cache the other files
+            "/",
+            // "./index.html",
+            "./index.js",
+            "./idb.js",
+            //only caches this one
+            "../css/styles.css"
+        
+        ])
     })
 )
 })
@@ -36,7 +36,7 @@ self.addEventListener('activate', function (e) {
 
             return Promise.all(
                 keyList.map(function(key, i) {
-                    if(cahceKeeplist.indexOf(key) === -1) {
+                    if(cacheKeeplist.indexOf(key) === -1) {
                         console.log('deleting cache : ' + keyList[i]);
                         return caches.delete(keyList[i]);
                     }
