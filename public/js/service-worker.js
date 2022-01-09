@@ -15,7 +15,7 @@ e.waitUntil(
             //figure out why it won't cache the other files
             "/",
             // "./index.html",
-            "./index.js",
+            
             "./idb.js",
             //only caches this one
             "../css/styles.css"
